@@ -426,17 +426,23 @@ var completionItemKindName = map[CompletionItemKind]string{
 	CIKTypeParameter: "typeParameter",
 }
 
+type CompletionItemLabelDetails struct {
+	Detail      string `json:"detail,omitempty"`
+	Description string `json:"description,omitempty"`
+}
+
 type CompletionItem struct {
-	Label            string             `json:"label"`
-	Kind             CompletionItemKind `json:"kind,omitempty"`
-	Detail           string             `json:"detail,omitempty"`
-	Documentation    string             `json:"documentation,omitempty"`
-	SortText         string             `json:"sortText,omitempty"`
-	FilterText       string             `json:"filterText,omitempty"`
-	InsertText       string             `json:"insertText,omitempty"`
-	InsertTextFormat InsertTextFormat   `json:"insertTextFormat,omitempty"`
-	TextEdit         *TextEdit          `json:"textEdit,omitempty"`
-	Data             interface{}        `json:"data,omitempty"`
+	Label            string                      `json:"label"`
+	LabelDetails     *CompletionItemLabelDetails `json:"labelDetails,omitempty"`
+	Kind             CompletionItemKind          `json:"kind,omitempty"`
+	Detail           string                      `json:"detail,omitempty"`
+	Documentation    string                      `json:"documentation,omitempty"`
+	SortText         string                      `json:"sortText,omitempty"`
+	FilterText       string                      `json:"filterText,omitempty"`
+	InsertText       string                      `json:"insertText,omitempty"`
+	InsertTextFormat InsertTextFormat            `json:"insertTextFormat,omitempty"`
+	TextEdit         *TextEdit                   `json:"textEdit,omitempty"`
+	Data             interface{}                 `json:"data,omitempty"`
 }
 
 type CompletionList struct {
